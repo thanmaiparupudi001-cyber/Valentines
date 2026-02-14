@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Happy Valentine's Day ❤️</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            text-align: center;
+            color: white;
+            overflow-x: hidden;
+            background: linear-gradient(-45deg, #ff4d6d, #ff99c8, #c9184a, #ff758f);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+
+        h1 {
+            margin-top: 60px;
+            font-size: 36px;
+        }
+
+        p {
+            max-width: 600px;
+            margin: auto;
+            font-size: 18px;
+            padding: 20px;
+        }
+
+        button {
+            padding: 12px 20px;
+            margin: 10px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            background-color: white;
+            color: #c9184a;
+            font-weight: bold;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+        }
+
+        #message {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* Popup Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 100px;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.7);
+        }
+
+        .modal-content {
+            background-color: white;
+            color: #c9184a;
+            margin: auto;
+            padding: 30px;
+            width: 70%;
+            border-radius: 15px;
+        }
+
+        .close {
+            float: right;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        /* Floating Hearts */
+        .heart {
+            position: fixed;
+            bottom: -10px;
+            color: white;
+            font-size: 20px;
+            animation: floatUp 5s linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% {transform: translateY(0); opacity: 1;}
+            100% {transform: translateY(-100vh); opacity: 0;}
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Happy Valentine's Day My Love ❤️</h1>
+
+    <p>
+        Thank you for handling my drama, my mood swings,
+        and my complaining sessions.
+        <br><br>
+        I complain about you stealing the blanket…
+        But honestly, you are my safest place.
+        I don’t just love you —
+        I choose you. Every single day.
+    </p>
+
+    <button onclick="showReasons()">Reasons I Love You</button>
+    <button onclick="openLetter()">Open Secret Letter 💌</button>
+
+    <br><br>
+
+    <button onclick="sayYes()">YES, I Love You ❤️</button>
+    <button id="noBtn" onmouseover="moveNo()">NO 😏</button>
+
+    <div id="message"></div>
+
+    <!-- Popup Modal -->
+    <div id="letterModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeLetter()">&times;</span>
+            <h2>My Forever Person ❤️</h2>
+            <p>
+                You are my calm in chaos,  
+                my strength when I feel weak,  
+                my home no matter where we are.  
+                <br><br>
+                I promise to annoy you forever,
+                love you endlessly,
+                and choose you in every lifetime.
+            </p>
+        </div>
+    </div>
+
+    <!-- Background Music (Replace link if you want) -->
+    <audio autoplay loop>
+        <source src="https://open.spotify.com/track/2E5kZ1qnB7V9bcwBEKvZv8?si=70775659df514cb3" type="audio/mp3">
+    </audio>
+
+    <script>
+        function showReasons() {
+            document.getElementById("message").innerHTML =
+                "✔ You handle my drama like a pro 💕 <br>" +
+                "✔ You are my safest place 💕 <br>" +
+                "✔ You make me laugh 💕 <br>" +										"✔ You handle my బుజ్జి బుజ్జి అలకలు with పెద్ద పెద్ద బుజ్జగింపులు 💕 <br>" +
+                "✔ And obviously....you're stuck with me forever 😌";
+        }
+
+        function sayYes() {
+            document.getElementById("message").innerHTML =
+                "Good choice (No choice😈). Very smart husband. I approve. ❤️";
+        }
+
+        function moveNo() {
+            var button = document.getElementById("noBtn");
+            button.style.position = "absolute";
+            button.style.top = Math.random() * window.innerHeight + "px";
+            button.style.left = Math.random() * window.innerWidth + "px";
+        }
+
+        function openLetter() {
+            document.getElementById("letterModal").style.display = "block";
+        }
+
+        function closeLetter() {
+            document.getElementById("letterModal").style.display = "none";
+        }
+
+        // Floating hearts generator
+        setInterval(function() {
+            var heart = document.createElement("div");
+            heart.className = "heart";
+            heart.innerHTML = "❤️";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.fontSize = (Math.random() * 20 + 10) + "px";
+            document.body.appendChild(heart);
+
+            setTimeout(function() {
+                heart.remove();
+            }, 5000);
+        }, 500);
+    </script>
+
+</body>
+</html>
